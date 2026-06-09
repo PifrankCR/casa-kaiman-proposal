@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Casa Kaiman · A proposal</title>
+<meta name="description" content="A small proposal for a new Casa Kaiman website. From Pablo, June 2026." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* MOSS & CLAY — warm jungle palette */
+    --ink:#2F4A3C;          /* warm jungle moss (base bg) */
+    --ink-deep:#1F362A;     /* deeper moss for featured & footer */
+    --ink-soft:#3D5A4B;     /* lighter moss for tier cards */
+    --cream:#F2E9D2;        /* warm parchment */
+    --cream-strong:#FAF3DD; /* lightest text */
+    --sand:#D4B890;         /* warm honey */
+    --sand-dk:#B59A6F;
+    --ocher:#D78858;        /* warm clay / soft terracotta accent */
+    --ocher-dk:#B26A3E;
+    --rule:rgba(242,233,210,.16);
+    --text-strong:#FAF3DD;
+    --text-soft:rgba(244,234,210,.80);
+    --text-mute:rgba(244,234,210,.52);
+    --serif: "Newsreader", Georgia, serif;
+    --sans: "Inter", -apple-system, system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--ink);color:var(--text-strong);font-family:var(--sans);-webkit-font-smoothing:antialiased;line-height:1.55}
+  body{overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:780px;margin:0 auto;padding:0 28px}
+  @media (min-width:900px){.wrap{padding:0 40px}}
+
+  /* tiny top label */
+  .top{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 0;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--text-mute);border-bottom:1px solid var(--rule);font-weight:500;
+  }
+  .top .left{font-family:var(--serif);font-weight:400;
+    text-transform:none;letter-spacing:-.005em;font-size:20px;color:var(--cream);
+  }
+
+  /* HERO */
+  .hero{padding:54px 0 56px;border-bottom:1px solid var(--rule);position:relative;overflow:hidden}
+  .hero::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 80% 30%, rgba(215,136,88,.22) 0%, transparent 60%);
+    pointer-events:none;
+  }
+  .hero .kicker{
+    position:relative;
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--ocher);font-weight:500;margin-bottom:30px;
+  }
+  .hero h1{
+    position:relative;
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(40px, 7.4vw, 64px);
+    line-height:1.05;letter-spacing:-.02em;
+    color:var(--cream-strong);
+    margin-bottom:26px;
+  }
+  .hero h1 em{color:var(--ocher);font-style:italic;font-weight:400}
+  .hero .lede{
+    position:relative;
+    font-family:var(--sans);font-weight:300;
+    font-size:clamp(18px, 2.2vw, 21px);line-height:1.55;
+    color:var(--text-soft);max-width:600px;margin-bottom:18px;
+  }
+  .hero .from{
+    position:relative;
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--text-mute);margin-top:34px;font-weight:500;
+  }
+
+  /* Body sections */
+  .sec{padding:48px 0;border-bottom:1px solid var(--rule)}
+  .label{
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--ocher);font-weight:500;margin-bottom:18px;
+  }
+  .sec h2{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(26px,4.2vw,36px);line-height:1.15;
+    letter-spacing:-.012em;color:var(--cream-strong);
+    margin-bottom:22px;
+  }
+  .sec h2 em{color:var(--ocher);font-style:italic;font-weight:400}
+  .sec p{
+    font-size:17px;line-height:1.7;color:var(--text-soft);
+    margin-bottom:18px;max-width:640px;font-weight:300;
+  }
+  .sec p strong{color:var(--cream-strong);font-weight:500}
+
+  /* DIRECTIONS — three preview tiles */
+  .dir-grid{
+    display:grid;grid-template-columns:1fr;gap:22px;margin-top:22px;
+  }
+  @media (min-width:780px){
+    .dir-grid{grid-template-columns:repeat(3, 1fr);gap:18px}
+  }
+  .dir{display:flex;flex-direction:column;gap:14px}
+  .dir-frame{
+    border:1px solid var(--rule);border-radius:4px;overflow:hidden;
+    aspect-ratio:4/5;display:flex;flex-direction:column;
+  }
+  .dir-frame .head{
+    padding:10px 12px;border-bottom:1px solid rgba(0,0,0,.05);
+    display:flex;align-items:center;gap:6px;flex-shrink:0;
+  }
+  .dir-frame .dot{width:7px;height:7px;border-radius:50%;opacity:.4}
+  .dir-frame .body{
+    padding:18px 18px 20px;flex:1;display:flex;flex-direction:column;
+    justify-content:flex-end;position:relative;overflow:hidden;
+  }
+  .dir-frame .pk{
+    font-size:9px;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:500;margin-bottom:12px;
+  }
+  .dir-frame .pt{
+    font-family:var(--serif);font-weight:400;line-height:1.0;
+    letter-spacing:-.02em;font-size:clamp(22px,3.5vw,28px);
+    margin-bottom:12px;
+  }
+  .dir-frame .pt em{font-style:italic;font-weight:400}
+  .dir-frame .ps{
+    font-size:11.5px;line-height:1.5;font-weight:300;margin-bottom:14px;
+    font-family:var(--sans);
+  }
+  .dir-frame .cta{
+    display:inline-block;padding:6px 10px;font-size:9px;
+    letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+    border:1px solid;width:max-content;
+  }
+  .dir .caption{padding:0 4px}
+  .dir .caption .name{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:18px;color:var(--cream-strong);margin-bottom:4px;
+  }
+  .dir .caption .mood{
+    font-size:13px;color:var(--text-mute);line-height:1.55;font-weight:300;
+  }
+
+  /* MOSS & CLAY tile (the recommended direction, matches base page) */
+  .dir-moss .dir-frame{background:#1F362A}
+  .dir-moss .dir-frame::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 75% 35%, rgba(215,136,88,.22) 0%, transparent 65%);
+    pointer-events:none;
+  }
+  .dir-moss .dir-frame .body{color:#FAF3DD;position:relative;z-index:1}
+  .dir-moss .dir-frame .pk{color:#D78858}
+  .dir-moss .dir-frame .pt{color:#FAF3DD}
+  .dir-moss .dir-frame .pt em{color:#D78858}
+  .dir-moss .dir-frame .ps{color:rgba(242,233,210,.80)}
+  .dir-moss .dir-frame .cta{color:#D78858;border-color:#D78858}
+  .dir-moss .dir-frame .dot{background:#FAF3DD}
+
+  /* BONE & BRICK tile */
+  .dir-bone .dir-frame{background:#EFEAD8}
+  .dir-bone .dir-frame::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 75% 35%, rgba(139,58,47,.16) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .dir-bone .dir-frame .body{color:#1B1B19;position:relative;z-index:1}
+  .dir-bone .dir-frame .pk{color:#8B3A2F}
+  .dir-bone .dir-frame .pt{color:#1B1B19}
+  .dir-bone .dir-frame .pt em{color:#8B3A2F}
+  .dir-bone .dir-frame .ps{color:rgba(27,27,25,.72)}
+  .dir-bone .dir-frame .cta{color:#8B3A2F;border-color:#8B3A2F}
+  .dir-bone .dir-frame .dot{background:#1B1B19}
+  .dir-bone .dir-frame .head{border-bottom:1px solid rgba(27,27,25,.08)}
+
+  /* PURA VIDA (warm cream) tile */
+  .dir-warm .dir-frame{background:#F7F2E8}
+  .dir-warm .dir-frame::before{
+    content:"";position:absolute;inset:0;
+    background:radial-gradient(ellipse at 75% 35%, rgba(201,97,62,.20) 0%, transparent 70%);
+    pointer-events:none;
+  }
+  .dir-warm .dir-frame .body{color:#1F4438;position:relative;z-index:1}
+  .dir-warm .dir-frame .pk{color:#C9613E}
+  .dir-warm .dir-frame .pt{color:#1F4438}
+  .dir-warm .dir-frame .pt em{color:#C9613E}
+  .dir-warm .dir-frame .ps{color:rgba(31,68,56,.78)}
+  .dir-warm .dir-frame .cta{color:#C9613E;border-color:#C9613E}
+  .dir-warm .dir-frame .dot{background:#1F4438}
+  .dir-warm .dir-frame .head{border-bottom:1px solid rgba(31,68,56,.08)}
+
+  /* TIERS */
+  .tiers{display:flex;flex-direction:column;gap:18px;margin-top:8px}
+  .tier{
+    background:var(--ink-soft);border:1px solid var(--rule);
+    border-radius:4px;padding:28px 26px;position:relative;
+    transition:border-color .2s ease;
+  }
+  .tier:hover{border-color:rgba(234,230,220,.28)}
+  .tier.featured{background:var(--ink-deep);border-color:var(--ocher)}
+  .tier .ribbon{
+    position:absolute;top:-11px;left:24px;
+    background:var(--ocher);color:var(--ink-deep);
+    font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+    padding:5px 12px;font-weight:600;
+  }
+  .tier .head{display:flex;align-items:baseline;justify-content:space-between;gap:14px;margin-bottom:8px;flex-wrap:wrap}
+  .tier .kicker{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--ocher);font-weight:500}
+  .tier h3{
+    font-family:var(--serif);font-weight:400;font-size:30px;
+    color:var(--cream-strong);margin:6px 0 4px;
+    letter-spacing:-.012em;line-height:1.1;
+  }
+  .tier .price{
+    font-family:var(--serif);font-weight:400;font-style:italic;
+    font-size:34px;color:var(--cream-strong);letter-spacing:-.01em;
+  }
+  .tier .weeks{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-mute);margin-top:2px;font-weight:500}
+  .tier .body{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:18px;line-height:1.5;color:var(--text-soft);
+    margin:14px 0 18px;
+  }
+  .tier .body em{color:var(--ocher);font-style:italic}
+  .tier ul{list-style:none;border-top:1px solid var(--rule);padding-top:16px}
+  .tier li{
+    font-size:14.5px;line-height:1.55;color:var(--text-soft);
+    padding:5px 0 5px 22px;position:relative;font-weight:400;
+  }
+  .tier li::before{
+    content:"";position:absolute;left:0;top:14px;width:9px;height:1px;background:var(--ocher);
+  }
+
+  /* ADD-ONS */
+  .addons .row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    border-top:1px solid var(--rule);padding:18px 0;gap:16px;flex-wrap:wrap;
+  }
+  .addons .row:last-child{border-bottom:1px solid var(--rule)}
+  .addons .name{font-size:16px;color:var(--cream-strong);font-weight:500;flex:1 1 200px}
+  .addons .desc{font-size:13.5px;color:var(--text-mute);font-style:italic;flex:2 1 300px;font-family:var(--serif);font-weight:300}
+  .addons .price{
+    font-family:var(--serif);font-style:italic;font-weight:400;font-size:22px;
+    color:var(--ocher);min-width:140px;text-align:right;
+  }
+
+  /* CLOSE */
+  .close{padding:54px 0 16px;border-bottom:1px solid var(--rule)}
+  .close .signoff{
+    font-family:var(--serif);font-style:italic;font-weight:300;
+    font-size:21px;color:var(--text-soft);line-height:1.5;
+    max-width:600px;margin-bottom:36px;
+  }
+  .small{font-size:13px;color:var(--text-mute);margin-top:24px;line-height:1.7}
+
+  /* footer */
+  .foot{padding:40px 0 60px;font-size:12px;color:var(--text-mute);text-align:center;letter-spacing:.04em}
+  .foot em{color:var(--ocher);font-style:italic}
+
+  /* future-feel preview frame (the bigger taste block) */
+  .preview{padding:56px 0;border-bottom:1px solid var(--rule)}
+  .preview-frame{
+    background:var(--ink-deep);border:1px solid var(--rule);
+    border-radius:4px;overflow:hidden;margin-top:20px;
+  }
+  .preview-head{
+    padding:14px 18px;border-bottom:1px solid var(--rule);
+    display:flex;align-items:center;gap:8px;
+  }
+  .preview-head .dot{width:9px;height:9px;border-radius:50%;background:rgba(234,230,220,.18)}
+  .preview-head .url{font-size:11px;color:var(--text-mute);margin-left:14px;letter-spacing:.04em}
+  .preview-body{
+    padding:36px 32px 44px;position:relative;
+    background:radial-gradient(ellipse at 75% 35%, rgba(215,136,88,.20) 0%, transparent 65%);
+  }
+  .preview-body .pk{
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    color:var(--ocher);font-weight:500;margin-bottom:18px;
+  }
+  .preview-body .pt{
+    font-family:var(--serif);font-weight:400;
+    font-size:clamp(28px,5vw,44px);line-height:1.05;letter-spacing:-.015em;
+    color:var(--cream-strong);margin-bottom:18px;
+  }
+  .preview-body .pt em{color:var(--ocher);font-style:italic;font-weight:400}
+  .preview-body .ps{
+    font-family:var(--serif);font-style:italic;font-weight:300;font-size:16px;
+    line-height:1.55;color:var(--text-soft);max-width:480px;margin-bottom:22px;
+  }
+  .preview-body .pcta{
+    display:inline-block;border:1px solid var(--ocher);color:var(--ocher);
+    padding:9px 16px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;
+  }
+  .preview .note{font-size:12px;color:var(--text-mute);margin-top:14px;font-style:italic;font-family:var(--serif);font-weight:300}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- header -->
+  <div class="top">
+    <span class="left">Casa Kaiman</span>
+    <span>A proposal · June 2026</span>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="kicker">Playa Guiones · Nosara · Costa Rica</div>
+    <h1>A small <em>new home</em><br>for Casa Kaiman online.</h1>
+    <p class="lede">Two villas, four apartments, two minutes from the wave at Guiones, and a website that finally tells that story the way Stacie and the photographer already are.</p>
+    <div class="from">From Pablo · for Stacie to share</div>
+  </section>
+
+  <!-- THE MOMENT -->
+  <section class="sec">
+    <div class="label">Where we are</div>
+    <h2>Nosara has changed, and the website hasn't <em>caught up.</em></h2>
+    <p>You bought these as homes. The rental side started as a way to cover costs. That worked for a long time. But the town you bought into isn't the town you're renting in now.</p>
+    <p>The properties around you have grown into proper boutique stays. Rates have climbed. Photography has been redone. Stories are clearer. You've already made the two biggest moves on your side: <strong>Stacie is coming in on the experience side, and the photographer is booked.</strong> The website is the piece that hasn't caught up. And right now it's the piece holding the others back.</p>
+    <p>This is what I'd build, and how I'd phase it, so it fits the speed you want to move at.</p>
+  </section>
+
+  <!-- THREE DIRECTIONS -->
+  <section class="sec">
+    <div class="label">Three directions</div>
+    <h2>Three ways the new site could <em>feel.</em></h2>
+    <p>Same content, same structure, three different moods. Take a look. There's no wrong answer. The one that feels most like Casa Kaiman to you is the right one.</p>
+
+    <div class="dir-grid">
+
+      <div class="dir dir-moss">
+        <div class="dir-frame">
+          <div class="head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="body">
+            <div class="pk">Playa Guiones</div>
+            <div class="pt">A small place, kept <em>on purpose.</em></div>
+            <div class="ps">Two villas, four apartments, two minutes from the wave at Guiones.</div>
+            <span class="cta">Check availability</span>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="name">Moss &amp; Clay</div>
+          <div class="mood">Soft jungle green with a warm clay accent. Lived-in, sun-dappled, alive.</div>
+        </div>
+      </div>
+
+      <div class="dir dir-bone">
+        <div class="dir-frame">
+          <div class="head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="body">
+            <div class="pk">Playa Guiones</div>
+            <div class="pt">A small place, kept <em>on purpose.</em></div>
+            <div class="ps">Two villas, four apartments, two minutes from the wave at Guiones.</div>
+            <span class="cta">Check availability</span>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="name">Bone &amp; Brick</div>
+          <div class="mood">Warm oat and clay. Architectural, gallery-quiet, sun-on-stone.</div>
+        </div>
+      </div>
+
+      <div class="dir dir-warm">
+        <div class="dir-frame">
+          <div class="head"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <div class="body">
+            <div class="pk">Playa Guiones</div>
+            <div class="pt">A small place, kept <em>on purpose.</em></div>
+            <div class="ps">Two villas, four apartments, two minutes from the wave at Guiones.</div>
+            <span class="cta">Check availability</span>
+          </div>
+        </div>
+        <div class="caption">
+          <div class="name">Pura Vida</div>
+          <div class="mood">Cream and terracotta. Warmer, friendlier, closer to the front door.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VISUAL TASTE (bigger preview, in chosen palette) -->
+  <section class="preview">
+    <div class="label">A bigger taste</div>
+    <h2>And this is roughly the <em>feeling</em> of the homepage itself.</h2>
+    <div class="preview-frame">
+      <div class="preview-head">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <span class="url">casa-kaiman.com</span>
+      </div>
+      <div class="preview-body">
+        <div class="pk">Playa Guiones · Nosara</div>
+        <div class="pt">A small place,<br>kept on purpose.</div>
+        <div class="ps">Two villas and four apartments, two minutes from the wave at Guiones. Close enough to surf the dawn, far enough to hear the howler monkeys before the first car.</div>
+        <span class="pcta">Check availability</span>
+      </div>
+    </div>
+    <p class="note">Direction shown in Moss &amp; Clay. Final design and photography to come.</p>
+    <a href="mockups.html" style="display:inline-flex;align-items:center;gap:10px;margin-top:24px;color:var(--ocher);font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:500;border-bottom:1px solid var(--ocher);padding-bottom:6px;">See a fuller mockup &nbsp;→</a>
+  </section>
+
+  <!-- TIERS -->
+  <section class="sec">
+    <div class="label">Three options</div>
+    <h2>Three versions of the same idea. Pick the one that fits where you want to take it.</h2>
+
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="head">
+          <div>
+            <div class="kicker">Tier 1</div>
+            <h3>Essentials</h3>
+          </div>
+          <div style="text-align:right">
+            <div class="price">$2,000</div>
+            <div class="weeks">3 weeks</div>
+          </div>
+        </div>
+        <p class="body">A clean four-page site, a booking calendar that actually works, a Book Now button on every screen. The site you should have had three years ago.</p>
+        <ul>
+          <li>Real booking calendar. No more guesswork, no more double-bookings</li>
+          <li>Four pages: Home, Villas, Apartments, Contact</li>
+          <li>Mobile-first build, fast on a phone</li>
+          <li>WhatsApp button, every page</li>
+          <li>Existing photography</li>
+        </ul>
+      </div>
+
+      <div class="tier featured">
+        <span class="ribbon">My recommendation</span>
+        <div class="head">
+          <div>
+            <div class="kicker">Tier 2</div>
+            <h3>Refresh</h3>
+          </div>
+          <div style="text-align:right">
+            <div class="price">$2,900</div>
+            <div class="weeks">4 weeks</div>
+          </div>
+        </div>
+        <p class="body">Everything in Essentials, plus the parts that let you start charging what you should be charging. The version most boutique villas in Nosara are running now.</p>
+        <ul>
+          <li>Everything in Essentials, plus:</li>
+          <li>Six pages, with a Nosara section and a guest reviews wall</li>
+          <li>SEO setup so you show up when someone Googles "Nosara villa"</li>
+          <li>Two short blog pieces to start ranking on Google</li>
+          <li>A month after launch where I'm watching everything and fixing anything you notice</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <div class="head">
+          <div>
+            <div class="kicker">Tier 3</div>
+            <h3>Brand &amp; Presence</h3>
+          </div>
+          <div style="text-align:right">
+            <div class="price">$3,800</div>
+            <div class="weeks">5 weeks</div>
+          </div>
+        </div>
+        <p class="body">The full reset. The site, the Instagram, the Google profile, and an email sequence that brings past guests back. The version where your whole online presence sits with one team. Stacie on the guest side, me on the digital side.</p>
+        <ul>
+          <li>Everything in Refresh, plus:</li>
+          <li>Instagram restructure: bio, highlights, a small content kit</li>
+          <li>Google Business profile cleaned up and optimized</li>
+          <li>Email sequence for past guests (Mailchimp or Klaviyo)</li>
+          <li>Four short blog pieces</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADD-ONS -->
+  <section class="sec addons">
+    <div class="label">Add-ons (any tier)</div>
+    <h2>The small things, <em>only if you want them.</em></h2>
+    <div class="row">
+      <div class="name">Care plan</div>
+      <div class="desc">I keep the site in sync with whatever Stacie launches, fix anything that breaks, update rates and availability. You never log into anything.</div>
+      <div class="price">$250 / mo</div>
+    </div>
+    <div class="row">
+      <div class="name">Paid ad management</div>
+      <div class="desc">Meta and Google ads, monthly. Excludes the ad spend itself.</div>
+      <div class="price">$500 / mo</div>
+    </div>
+    <p class="small" style="margin-top:22px">Photography is being handled separately. That's already taken care of.</p>
+  </section>
+
+  <!-- CLOSE -->
+  <section class="close">
+    <div class="label">What's next</div>
+    <h2>Whichever version you pick, here's <em>how it works.</em></h2>
+    <p style="font-size:17px;color:var(--text-soft);max-width:600px;line-height:1.7;font-weight:300">
+      Half the fee on signing, half on launch. USD via Wise transfer. There's a one-page agreement, that's the only paperwork. If you'd like to start, just send a "yes" to the group chat and I'll have it ready the same day.
+    </p>
+    <p class="signoff">If you want to walk through any of this on a call together with Stacie, I'm around. Otherwise, take your time.</p>
+    <div class="small">
+      <strong style="color:var(--cream-strong);font-weight:500">Pablo</strong> · web &amp; marketing
+    </div>
+  </section>
+
+  <div class="foot">Casa Kaiman · A proposal · June 2026 · <em>made in Nosara</em></div>
+</div>
+</body>
+</html>
