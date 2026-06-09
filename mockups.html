@@ -62,7 +62,7 @@
     background:#1B1B19;
   }
 
-  /* MOCKUP — one full-bleed section per palette */
+  /* MOCKUP - one full-bleed section per palette */
   .mockup{position:relative}
   .mockup .panel{padding:56px 24px 64px;position:relative;overflow:hidden}
   .mockup .panel::before{
@@ -147,6 +147,30 @@
     font-weight:500;opacity:.7;
   }
 
+  /* apartments - deliberately smaller and lighter than the villa cards:
+     four-up, square, tighter type. Reads as the second tier of the property. */
+  .mk-sub-label{
+    font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+    font-weight:500;margin:38px 0 16px;opacity:.85;position:relative;
+  }
+  .mk-apts{
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;position:relative;
+  }
+  @media (min-width:680px){
+    .mk-apts{grid-template-columns:repeat(4,1fr);gap:14px}
+  }
+  .mk-apt{position:relative}
+  .mk-apt .photo{aspect-ratio:1/1;width:100%}
+  .mk-apt h4{
+    font-family:"Newsreader",serif;font-weight:400;
+    font-size:16px;letter-spacing:-.01em;margin:10px 0 3px;
+  }
+  .mk-apt h4 em{font-style:italic}
+  .mk-apt .meta{
+    font-size:9px;letter-spacing:.14em;text-transform:uppercase;
+    font-weight:500;opacity:.62;
+  }
+
   /* caption strip below each mockup */
   .caption{
     padding:24px 24px 0;max-width:640px;margin:0 auto;
@@ -159,7 +183,7 @@
     font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:300;
   }
 
-  /* === DIRECTION 1 — MOSS & CLAY (recommended) === */
+  /* === DIRECTION 1 - MOSS & CLAY (recommended) === */
   .moss .panel{
     background:radial-gradient(ellipse at 80% 30%, rgba(215,136,88,.22) 0%, transparent 60%),
                linear-gradient(160deg, #1F362A 0%, #2F4A3C 40%, #3D5A4B 100%);
@@ -176,11 +200,14 @@
   .moss .mk-villa .photo{
     background:linear-gradient(135deg, rgba(215,136,88,.4) 0%, rgba(31,54,42,.95) 100%);
   }
+  .moss .mk-apt .photo{
+    background:linear-gradient(155deg, rgba(31,54,42,.92) 0%, rgba(215,136,88,.35) 100%);
+  }
   .moss .mk-villa h3{color:#FAF3DD}
   .moss .mk-villa .meta{color:rgba(244,234,210,.7)}
   .moss .mk-divider{background:#FAF3DD;opacity:.14}
 
-  /* === DIRECTION 2 — BONE & BRICK (light architectural) === */
+  /* === DIRECTION 2 - BONE & BRICK (light architectural) === */
   .bone .panel{
     background:radial-gradient(ellipse at 80% 30%, rgba(139,58,47,.16) 0%, transparent 65%),
                linear-gradient(160deg, #E2DCC6 0%, #EFEAD8 50%, #D8D2BD 100%);
@@ -197,11 +224,14 @@
   .bone .mk-villa .photo{
     background:linear-gradient(135deg, rgba(139,58,47,.42) 0%, rgba(95,93,84,.55) 60%, rgba(27,27,25,.85) 100%);
   }
+  .bone .mk-apt .photo{
+    background:linear-gradient(155deg, rgba(27,27,25,.8) 0%, rgba(95,93,84,.5) 55%, rgba(139,58,47,.38) 100%);
+  }
   .bone .mk-villa h3{color:#1B1B19}
   .bone .mk-villa .meta{color:rgba(27,27,25,.55)}
   .bone .mk-divider{background:#1B1B19;opacity:.12}
 
-  /* === DIRECTION 3 — PURA VIDA (warm cream) === */
+  /* === DIRECTION 3 - PURA VIDA (warm cream) === */
   .puravida .panel{
     background:radial-gradient(ellipse at 80% 30%, rgba(201,97,62,.20) 0%, transparent 65%),
                linear-gradient(160deg, #F7F2E8 0%, #FAF5EC 60%, #E5D5B7 100%);
@@ -217,6 +247,9 @@
   .puravida .mk-section-title em{color:#C9613E}
   .puravida .mk-villa .photo{
     background:linear-gradient(135deg, rgba(201,97,62,.35) 0%, rgba(31,68,56,.85) 100%);
+  }
+  .puravida .mk-apt .photo{
+    background:linear-gradient(155deg, rgba(31,68,56,.82) 0%, rgba(201,97,62,.32) 100%);
   }
   .puravida .mk-villa h3{color:#1F4438}
   .puravida .mk-villa .meta{color:rgba(31,68,56,.55)}
@@ -247,7 +280,7 @@
   <p>Same content, same structure, three different moods. Scroll through each one. There's no wrong answer. The one that feels most like Casa Kaiman to you is the right one.</p>
 </section>
 
-<!-- DIRECTION 1 — MOSS & CLAY -->
+<!-- DIRECTION 1 - MOSS & CLAY -->
 <div class="divider">01 · Moss &amp; Clay</div>
 <div class="mockup moss">
   <div class="panel">
@@ -277,6 +310,30 @@
         <div class="meta">4 bedrooms · sleeps 9 · pool</div>
       </div>
     </div>
+
+    <div class="mk-sub-label">Four loft apartments</div>
+    <div class="mk-apts">
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Vista</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Rincón</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Mona</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Baja</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="caption">
@@ -284,7 +341,7 @@
   <div class="mood">Soft jungle green with a warm clay accent. Lived-in, sun-dappled, alive. This is the direction in the proposal.</div>
 </div>
 
-<!-- DIRECTION 2 — BONE & BRICK -->
+<!-- DIRECTION 2 - BONE & BRICK -->
 <div class="divider">02 · Bone &amp; Brick</div>
 <div class="mockup bone">
   <div class="panel">
@@ -314,6 +371,30 @@
         <div class="meta">4 bedrooms · sleeps 9 · pool</div>
       </div>
     </div>
+
+    <div class="mk-sub-label">Four loft apartments</div>
+    <div class="mk-apts">
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Vista</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Rincón</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Mona</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Baja</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+    </div>
   </div>
 </div>
 <div class="caption">
@@ -321,7 +402,7 @@
   <div class="mood">Warm oat and clay. Architectural, gallery-quiet, sun-on-stone. Lighter feel, daytime energy.</div>
 </div>
 
-<!-- DIRECTION 3 — PURA VIDA -->
+<!-- DIRECTION 3 - PURA VIDA -->
 <div class="divider">03 · Pura Vida</div>
 <div class="mockup puravida">
   <div class="panel">
@@ -349,6 +430,30 @@
         <div class="photo"></div>
         <h3>Villa <em>Blanco</em></h3>
         <div class="meta">4 bedrooms · sleeps 9 · pool</div>
+      </div>
+    </div>
+
+    <div class="mk-sub-label">Four loft apartments</div>
+    <div class="mk-apts">
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Vista</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Rincón</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Mona</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
+      </div>
+      <div class="mk-apt">
+        <div class="photo"></div>
+        <h4>Apt <em>Baja</em></h4>
+        <div class="meta">loft · king · sleeps 2</div>
       </div>
     </div>
   </div>
