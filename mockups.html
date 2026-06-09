@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Casa Kaiman · Homepage directions</title>
+<meta name="description" content="Three palette directions for the new Casa Kaiman website." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{
+    background:#1B1B19;color:#fff;font-family:"Inter",sans-serif;
+    -webkit-font-smoothing:antialiased;line-height:1.55;overflow-x:hidden;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  em,i{font-style:italic}
+
+  /* tiny header */
+  .topbar{
+    position:sticky;top:0;z-index:50;background:rgba(27,27,25,.92);
+    backdrop-filter:blur(10px);
+    padding:14px 20px;display:flex;align-items:center;justify-content:space-between;
+    border-bottom:1px solid rgba(255,255,255,.08);
+    font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.55);
+    font-weight:500;
+  }
+  .topbar .brand{
+    font-family:"Newsreader",serif;font-weight:400;color:#fff;
+    text-transform:none;letter-spacing:-.005em;font-size:18px;
+  }
+  .topbar a.back{
+    display:inline-flex;align-items:center;gap:6px;color:rgba(255,255,255,.7);
+    font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;
+  }
+
+  /* intro */
+  .intro{
+    padding:48px 24px 36px;text-align:left;max-width:640px;margin:0 auto;
+  }
+  .intro .kicker{
+    font-size:11px;letter-spacing:.28em;text-transform:uppercase;
+    color:#D78858;font-weight:500;margin-bottom:18px;
+  }
+  .intro h1{
+    font-family:"Newsreader",serif;font-weight:400;
+    font-size:clamp(32px,7vw,46px);line-height:1.08;letter-spacing:-.015em;
+    color:#FAF3DD;margin-bottom:18px;
+  }
+  .intro h1 em{color:#D78858;font-style:italic;font-weight:400}
+  .intro p{
+    font-size:16px;line-height:1.65;color:rgba(255,255,255,.7);font-weight:300;
+    max-width:520px;
+  }
+
+  /* divider between sections */
+  .divider{
+    text-align:center;padding:28px 20px;font-size:10px;letter-spacing:.32em;
+    text-transform:uppercase;color:rgba(255,255,255,.4);font-weight:500;
+    background:#1B1B19;
+  }
+
+  /* MOCKUP — one full-bleed section per palette */
+  .mockup{position:relative}
+  .mockup .panel{padding:56px 24px 64px;position:relative;overflow:hidden}
+  .mockup .panel::before{
+    content:"";position:absolute;inset:0;
+    pointer-events:none;
+  }
+
+  /* generic mockup content */
+  .mk-nav{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:48px;font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:500;
+  }
+  .mk-nav .logo{
+    font-family:"Newsreader",serif;font-weight:400;font-size:18px;
+    text-transform:none;letter-spacing:-.005em;
+  }
+  .mk-nav .menu{display:none}
+  @media (min-width:600px){
+    .mk-nav .menu{display:flex;gap:24px;opacity:.85}
+    .mk-nav .menu span{font-size:10px}
+  }
+  .mk-nav .book{
+    border:1px solid currentColor;padding:8px 14px;font-size:10px;
+    letter-spacing:.18em;opacity:.85;
+  }
+
+  .mk-kicker{
+    font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:500;margin-bottom:20px;position:relative;
+  }
+  .mk-h1{
+    font-family:"Newsreader",serif;font-weight:400;line-height:1.0;
+    letter-spacing:-.025em;font-size:clamp(38px,10vw,68px);
+    margin-bottom:22px;position:relative;
+  }
+  .mk-h1 em{font-style:italic;font-weight:400}
+  .mk-lede{
+    font-family:"Newsreader",serif;font-style:italic;font-weight:300;
+    font-size:clamp(16px,4vw,18px);line-height:1.5;
+    margin-bottom:28px;max-width:480px;position:relative;
+  }
+  .mk-cta{
+    display:inline-block;padding:10px 18px;font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;font-weight:500;
+    border:1px solid;position:relative;
+  }
+
+  .mk-divider{
+    height:1px;margin:48px 0;opacity:.18;background:currentColor;position:relative;
+  }
+
+  /* lower section: two villa cards */
+  .mk-section-label{
+    font-size:10px;letter-spacing:.32em;text-transform:uppercase;
+    font-weight:500;margin-bottom:14px;position:relative;
+  }
+  .mk-section-title{
+    font-family:"Newsreader",serif;font-weight:400;
+    font-size:clamp(24px,5.5vw,32px);line-height:1.1;letter-spacing:-.015em;
+    margin-bottom:28px;position:relative;
+  }
+  .mk-section-title em{font-style:italic;font-weight:400}
+
+  .mk-villas{
+    display:grid;grid-template-columns:1fr;gap:18px;position:relative;
+  }
+  @media (min-width:680px){
+    .mk-villas{grid-template-columns:1fr 1fr;gap:20px}
+  }
+  .mk-villa{position:relative}
+  .mk-villa .photo{
+    aspect-ratio:4/3;width:100%;
+  }
+  .mk-villa h3{
+    font-family:"Newsreader",serif;font-weight:400;
+    font-size:20px;letter-spacing:-.01em;margin:14px 0 4px;
+  }
+  .mk-villa h3 em{font-style:italic}
+  .mk-villa .meta{
+    font-size:10px;letter-spacing:.18em;text-transform:uppercase;
+    font-weight:500;opacity:.7;
+  }
+
+  /* caption strip below each mockup */
+  .caption{
+    padding:24px 24px 0;max-width:640px;margin:0 auto;
+  }
+  .caption .name{
+    font-family:"Newsreader",serif;font-style:italic;font-weight:400;
+    font-size:22px;color:#FAF3DD;margin-bottom:6px;
+  }
+  .caption .mood{
+    font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;font-weight:300;
+  }
+
+  /* === DIRECTION 1 — MOSS & CLAY (recommended) === */
+  .moss .panel{
+    background:radial-gradient(ellipse at 80% 30%, rgba(215,136,88,.22) 0%, transparent 60%),
+               linear-gradient(160deg, #1F362A 0%, #2F4A3C 40%, #3D5A4B 100%);
+    color:#FAF3DD;
+  }
+  .moss .mk-kicker{color:#D78858}
+  .moss .mk-h1{color:#FAF3DD}
+  .moss .mk-h1 em{color:#D78858}
+  .moss .mk-lede{color:rgba(244,234,210,.82)}
+  .moss .mk-cta{color:#D78858;border-color:#D78858}
+  .moss .mk-section-label{color:#D78858}
+  .moss .mk-section-title{color:#FAF3DD}
+  .moss .mk-section-title em{color:#D78858}
+  .moss .mk-villa .photo{
+    background:linear-gradient(135deg, rgba(215,136,88,.4) 0%, rgba(31,54,42,.95) 100%);
+  }
+  .moss .mk-villa h3{color:#FAF3DD}
+  .moss .mk-villa .meta{color:rgba(244,234,210,.7)}
+  .moss .mk-divider{background:#FAF3DD;opacity:.14}
+
+  /* === DIRECTION 2 — BONE & BRICK (light architectural) === */
+  .bone .panel{
+    background:radial-gradient(ellipse at 80% 30%, rgba(139,58,47,.16) 0%, transparent 65%),
+               linear-gradient(160deg, #E2DCC6 0%, #EFEAD8 50%, #D8D2BD 100%);
+    color:#1B1B19;
+  }
+  .bone .mk-kicker{color:#8B3A2F}
+  .bone .mk-h1{color:#1B1B19}
+  .bone .mk-h1 em{color:#8B3A2F}
+  .bone .mk-lede{color:rgba(27,27,25,.74)}
+  .bone .mk-cta{color:#8B3A2F;border-color:#8B3A2F}
+  .bone .mk-section-label{color:#8B3A2F}
+  .bone .mk-section-title{color:#1B1B19}
+  .bone .mk-section-title em{color:#8B3A2F}
+  .bone .mk-villa .photo{
+    background:linear-gradient(135deg, rgba(139,58,47,.42) 0%, rgba(95,93,84,.55) 60%, rgba(27,27,25,.85) 100%);
+  }
+  .bone .mk-villa h3{color:#1B1B19}
+  .bone .mk-villa .meta{color:rgba(27,27,25,.55)}
+  .bone .mk-divider{background:#1B1B19;opacity:.12}
+
+  /* === DIRECTION 3 — PURA VIDA (warm cream) === */
+  .puravida .panel{
+    background:radial-gradient(ellipse at 80% 30%, rgba(201,97,62,.20) 0%, transparent 65%),
+               linear-gradient(160deg, #F7F2E8 0%, #FAF5EC 60%, #E5D5B7 100%);
+    color:#1F4438;
+  }
+  .puravida .mk-kicker{color:#C9613E}
+  .puravida .mk-h1{color:#1F4438}
+  .puravida .mk-h1 em{color:#C9613E}
+  .puravida .mk-lede{color:rgba(31,68,56,.75)}
+  .puravida .mk-cta{color:#C9613E;border-color:#C9613E}
+  .puravida .mk-section-label{color:#C9613E}
+  .puravida .mk-section-title{color:#1F4438}
+  .puravida .mk-section-title em{color:#C9613E}
+  .puravida .mk-villa .photo{
+    background:linear-gradient(135deg, rgba(201,97,62,.35) 0%, rgba(31,68,56,.85) 100%);
+  }
+  .puravida .mk-villa h3{color:#1F4438}
+  .puravida .mk-villa .meta{color:rgba(31,68,56,.55)}
+  .puravida .mk-divider{background:#1F4438;opacity:.14}
+
+  /* footer */
+  .pagefoot{
+    padding:48px 24px 64px;text-align:center;font-size:12px;
+    color:rgba(255,255,255,.5);background:#1B1B19;
+  }
+  .pagefoot a{
+    display:inline-block;margin-top:14px;color:#D78858;font-weight:500;
+    border-bottom:1px solid #D78858;padding-bottom:4px;font-size:13px;
+    letter-spacing:.14em;text-transform:uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="brand">Casa Kaiman</span>
+  <a class="back" href="index.html">← Back to proposal</a>
+</div>
+
+<section class="intro">
+  <div class="kicker">Three directions</div>
+  <h1>Three ways the new site could <em>feel.</em></h1>
+  <p>Same content, same structure, three different moods. Scroll through each one. There's no wrong answer. The one that feels most like Casa Kaiman to you is the right one.</p>
+</section>
+
+<!-- DIRECTION 1 — MOSS & CLAY -->
+<div class="divider">01 · Moss &amp; Clay</div>
+<div class="mockup moss">
+  <div class="panel">
+    <div class="mk-nav">
+      <span class="logo">Casa Kaiman</span>
+      <div class="menu"><span>Villas</span><span>Apartments</span><span>Nosara</span><span>Contact</span></div>
+      <span class="book">Reserve</span>
+    </div>
+    <div class="mk-kicker">Playa Guiones · Nosara · Costa Rica</div>
+    <h2 class="mk-h1">A small place, kept <em>on purpose.</em></h2>
+    <p class="mk-lede">Two villas, four apartments, two minutes from the wave at Guiones. Close enough to surf the dawn, far enough to hear the howler monkeys before the first car.</p>
+    <span class="mk-cta">Check availability</span>
+
+    <div class="mk-divider"></div>
+
+    <div class="mk-section-label">The property</div>
+    <h3 class="mk-section-title">Two villas, four <em>apartments.</em></h3>
+    <div class="mk-villas">
+      <div class="mk-villa">
+        <div class="photo"></div>
+        <h3>Villa <em>Azul</em></h3>
+        <div class="meta">5 bedrooms · sleeps 11 · pool</div>
+      </div>
+      <div class="mk-villa">
+        <div class="photo"></div>
+        <h3>Villa <em>Blanco</em></h3>
+        <div class="meta">4 bedrooms · sleeps 9 · pool</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="caption">
+  <div class="name">Moss &amp; Clay</div>
+  <div class="mood">Soft jungle green with a warm clay accent. Lived-in, sun-dappled, alive. This is the direction in the proposal.</div>
+</div>
+
+<!-- DIRECTION 2 — BONE & BRICK -->
+<div class="divider">02 · Bone &amp; Brick</div>
+<div class="mockup bone">
+  <div class="panel">
+    <div class="mk-nav">
+      <span class="logo">Casa Kaiman</span>
+      <div class="menu"><span>Villas</span><span>Apartments</span><span>Nosara</span><span>Contact</span></div>
+      <span class="book">Reserve</span>
+    </div>
+    <div class="mk-kicker">Playa Guiones · Nosara · Costa Rica</div>
+    <h2 class="mk-h1">A small place, kept <em>on purpose.</em></h2>
+    <p class="mk-lede">Two villas, four apartments, two minutes from the wave at Guiones. Close enough to surf the dawn, far enough to hear the howler monkeys before the first car.</p>
+    <span class="mk-cta">Check availability</span>
+
+    <div class="mk-divider"></div>
+
+    <div class="mk-section-label">The property</div>
+    <h3 class="mk-section-title">Two villas, four <em>apartments.</em></h3>
+    <div class="mk-villas">
+      <div class="mk-villa">
+        <div class="photo"></div>
+        <h3>Villa <em>Azul</em></h3>
+        <div class="meta">5 bedrooms · sleeps 11 · pool</div>
+      </div>
+      <div class="mk-villa">
+        <div class="photo"></div>
+        <h3>Villa <em>Blanco</em></h3>
+        <div class="meta">4 bedrooms · sleeps 9 · pool</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="caption">
+  <div class="name">Bone &amp; Brick</div>
+  <div class="mood">Warm oat and clay. Architectural, gallery-quiet, sun-on-stone. Lighter feel, daytime energy.</div>
+</div>
+
+<!-- DIRECTION 3 — PURA VIDA -->
+<div class="divider">03 · Pura Vida</div>
+<div class="mockup puravida">
+  <div class="panel">
+    <div class="mk-nav">
+      <span class="logo">Casa Kaiman</span>
+      <div class="menu"><span>Villas</span><span>Apartments</span><span>Nosara</span><span>Contact</span></div>
+      <span class="book">Reserve</span>
+    </div>
+    <div class="mk-kicker">Playa Guiones · Nosara · Costa Rica</div>
+    <h2 class="mk-h1">A small place, kept <em>on purpose.</em></h2>
+    <p class="mk-lede">Two villas, four apartments, two minutes from the wave at Guiones. Close enough to surf the dawn, far enough to hear the howler monkeys before the first car.</p>
+    <span class="mk-cta">Check availability</span>
+
+    <div class="mk-divider"></div>
+
+    <div class="mk-section-label">The property</div>
+    <h3 class="mk-section-title">Two villas, four <em>apartments.</em></h3>
+    <div class="mk-villas">
+      <div class="mk-villa">
+        <div class="photo"></div>
+        <h3>Villa <em>Azul</em></h3>
+        <div class="meta">5 bedrooms · sleeps 11 · pool</div>
+      </div>
+      <div class="mk-villa">
+        <div class="photo"></div>
+        <h3>Villa <em>Blanco</em></h3>
+        <div class="meta">4 bedrooms · sleeps 9 · pool</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="caption">
+  <div class="name">Pura Vida</div>
+  <div class="mood">Cream and terracotta. Warmer, friendlier, closer to the front door. Most welcoming, most informal.</div>
+</div>
+
+<div class="pagefoot">
+  Photos are placeholders. Final design and photography to come.<br>
+  <a href="index.html">Back to the proposal →</a>
+</div>
+
+</body>
+</html>
